@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/predict" method="POST">
+        <h2>Diabetes Prediction Form</h2>
+        {% if label %} 
+               {% if label==1 %} 
+                    <h3 style="color:red">You are Diabetic.😔</h3>
+               {% else %}
+                    <h3 style="color:green">Bravo👏You are not Diabetic.😁</h3>
+                {% endif %}
+        {% endif %}
+
+        <label for="preg">Number of Pregnancies:</label>
+        <input type="number" id="preg" name="pregnancies" placeholder="Enter the number of pregnancies" required>
+
+        <label for="glucose">Glucose Level (mg/dL):</label>
+        <input type="number" id="glucose" name="glucose" step="0.01" placeholder="Enter your glucose level" required>
+
+        <label for="bloodpressure">Blood Pressure (mm Hg):</label>
+        <input type="number" id="bloodpressure" name="bloodpressure" step="0.01" placeholder="Enter your blood pressure" required>
+
+        <label for="skinthickness">Skin Thickness (mm):</label>
+        <input type="number" id="skinthickness" name="skinthickness" step="0.01" placeholder="Enter your skin thickness" required>
+
+        <label for="insulin">Insulin Level (mu U/ml):</label>
+        <input type="number" id="insulin" name="insulin" step="0.01" placeholder="Enter your insulin level" required>
+       
+        <label for="bmi">Body Mass Index (BMI):</label>
+        <input type="number" id="bmi" name="bmi" step="0.01" placeholder="Enter your BMI" required>
+       
+        <label for="dpf">Diabetes Pedigree Function:</label>
+        <input type="number" id="dpf" name="dpf" step="0.001" placeholder="Enter your diabetes pedigree function" required>
+       
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" placeholder="Enter your age" required>
+       
+        <button type="submit" value="Predict">Check</button>
+    </form>
+
+</body>
+</html>
